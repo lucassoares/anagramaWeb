@@ -1,0 +1,33 @@
+/* ----------------------
+Style Sheet for Web Anagram
+version: 1.0
+author: Lucas Soares
+-----------------------*/
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background-color: #1e1e1e;
+	color: #fefefe;
+	font-family: Segoe, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+	 overflow-x: hidden;
+}
+#input-word{
+	padding: 20px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+#btn-anagrama{
+	margin-bottom: 20px;
+}
+#titulo{
+	font-size: 50px;
+}
+#dev{
+	font-size: 15px;
+	margin-bottom: 40px;
+}
+p{
+	font-size: 20px;
+}
