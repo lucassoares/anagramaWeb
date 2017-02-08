@@ -1,19 +1,20 @@
 $(document).ready(function(){
 				$("button").click(function(){
+					$("#loader").show(1);
 					if($("#input-word").val() == ''){
 						alert("Preencha o campo para prosseguir")
 						return false;
-				}
+					}	
 					var word = $("input").val();
 					$('#anagrams').empty();
 					benchMark(word);
+					$("#loader").hide(1);
 				});
 
 		function generateAnagrams(word){
 	    if (word.length < 2){
 	        return [word];
 	    }else{
-
 	        var anagrams = [];
 	        var before, focus, after;
 	        var shortWord, subAnagrams, newEntry;
