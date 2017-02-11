@@ -14,20 +14,27 @@
 	<body>
 		<div class="container">
 		<center>
-			<h1 id="titulo"> <strong>Gerador de Anagramas</strong> </h1>
+			<h1 id="titulo"><strong>Gerador de Anagramas</strong></h1>
 			<h4 id="dev">Lucas Soares</h4>
 			<div class="row">
 			<div class="col-sm-4"></div>
 				<div class="col-sm-4">
 					<input type="text" name="word" id ="input-word" placeholder="Digite uma palavra aqui" class="form-control">
 					<button type="button" class="btn btn-info form-control" id="btn-anagrama">GERAR</button>
+					<div class="alert alert-danger alerta-vazio">
+  						<strong>Atenção! </strong> <br> Digite uma palavra para continuar
+					</div>
+					<div class="alert alert-warning alerta-caracteres">
+  						<strong>Atenção! </strong> <br>
+  						O número máximo de letras é de 9, pois se com 9 letras temos 90.720 combinações, com 10 letras seriam 907.200 combinações! E com tanta informação, bloquearia o seu navegador.
+					</div>
 				</div>
 				<div class="col-sm-4"></div>
 				</center>
 			</div>
 			<div class="row">
 			<center>
-				<div id="loader" style="display: none; margin-bottom: 30px;">
+				<div id="loader">
 					<img src="assets/img/loader.gif" style="max-width: 50px; ">	
 				</div>
 				<div class="col-sm-12">

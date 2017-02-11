@@ -1,17 +1,28 @@
 $(document).ready(function(){
 				$("button").click(function(){
-					$("#loader").show(1);
-					if($("#input-word").val() == ''){
-						alert("Preencha o campo para prosseguir")
+					if($('#input-word').val().length >= 9){
+						$('.alerta-caracteres').show();
+						$('.alerta-vazio').hide();
+						$('#anagrams').empty();
 						return false;
-					}	
-					var word = $("input").val();
+					}
+					if($("#input-word").val() == ''){
+						$('.alerta-vazio').show();
+						$('.alerta-caracteres').hide();
+						$('#anagrams').empty();
+						return false;
+					}
+					$('.alerta-caracteres').hide();
+					$('.alerta-vazio').hide();
+					var word = $("#input-word").val().toLowerCase();
 					$('#anagrams').empty();
-					benchMark(word);
-					$("#loader").hide(1);
+					$("#loader").show();	
+					window.setTimeout(function(){
+        				benchMark(word)
+    					}, 0);
 				});
-
-		function generateAnagrams(word){
+				
+	function generateAnagrams(word){
 	    if (word.length < 2){
 	        return [word];
 	    }else{
@@ -21,13 +32,11 @@ $(document).ready(function(){
 	        var i = 0;
 
 	        for (var i = 0; i < word.length; i++){
-
 	            before = word.slice(0, i);
 	            focus = word[i];
 	            after = word.slice(i + 1, word.length + 1);
 	            shortWord = before + after;
 	            subAnagrams = generateAnagrams(shortWord);
-
 	            for (var j = 0; j < subAnagrams.length; j++){
 
 	                newEntry = focus + subAnagrams[j];
@@ -44,6 +53,11 @@ $(document).ready(function(){
 
 	function benchMark(word){
 	    var result = generateAnagrams(word);
+	    for (var i=result.length-1; i>=0; i--){
+    		if (result[i].charAt(0) == '0'){
+        	result.splice(i, 1);
+    		}
+		}
 	         var cList = $('#anagrams')
 	        $.each(result, function(i){
 		    var li = $('<li/>')
@@ -52,9 +66,10 @@ $(document).ready(function(){
 		        .appendTo(cList);
 		    var a = $('<p/>')
 		        .addClass('ui-all')
-		        .text(result[i])
+		        .text((i+1) +' - ' + result[i])
 		        .appendTo(li);
 	});
-	     $("#anagrams").append("Total: " + result.length); 
+	     $("#anagrams").append("Total: " + result.length);
+	     $('#loader').hide();	 
 	}
 });

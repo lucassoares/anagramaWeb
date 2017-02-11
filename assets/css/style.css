@@ -7,6 +7,14 @@ author: Lucas Soares
 	margin: 0px;
 	padding: 0px;
 }
+::-moz-selection{
+    color: white;
+    background: #1e1e1e;
+}
+::selection{
+    color: white; 
+    background: #1e1e1e;
+}
 body{
 	background-color: #1e1e1e;
 	color: #fefefe;
@@ -30,4 +38,14 @@ body{
 }
 p{
 	font-size: 20px;
+}
+#loader{
+	display: none;
+	margin-bottom: 30px;
+}
+.alerta-vazio{
+	display: none;
+}
+.alerta-caracteres{
+	display: none;
 }
